@@ -1,0 +1,39 @@
+/**
+ * Created by 荼蘼 on 2017-08-08.
+ */
+
+<html>
+<head>
+</head>
+<body>
+<script>
+	var num = prompt('input your number then i will go on:','90');
+	var regex = new RegExp(/^[0-9]*[1-9][0-9]*$/);
+	var i = 2;
+	var handle = num;
+	var arr = new Array();
+	while(i<handle){		//i小于num则一直循环下去，直到i=num为止
+		var result = handle/i;
+		if(regex.test(result)){	//除2结果为整数
+			arr.push(i);
+			i=2;
+			handle=result;
+		}else{
+			i++;
+		}
+		if(i == handle-1){	//判断是否要结尾
+			arr.push(handle)
+			break;
+		}
+	}
+	//打印结果
+	var str = String();
+	for(i=0;i<arr.length;i++){
+		str += arr[i];
+		if(i != arr.length-1)
+			str += '*';
+	}
+	alert('the result :'+str);
+</script>
+</body>
+</html>
